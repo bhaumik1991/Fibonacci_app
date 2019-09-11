@@ -73,24 +73,16 @@ WSGI_APPLICATION = 'Fibonacci.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-import os
-if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine'):
-    # Running on production App Engine, so use a Google Cloud SQL database.
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'HOST': '/cloudsql/<your-cloudsql-connection string>',
-            'NAME': '[YOUR-DATABASE]',
-            'USER': '[YOUR-USERNAME]',
-        }
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Fibonacci',
+        'USER':'root',
+        'PASSWORD':'newpassword'
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
-    }
+}
 
 
 # Password validation
