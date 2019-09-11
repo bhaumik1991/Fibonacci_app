@@ -1,1 +1,1 @@
-web: gunicorn Fibonacci.wsgi
+web: gunicorn Fibonacci.wsgi --log-file -
